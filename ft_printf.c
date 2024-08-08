@@ -6,7 +6,7 @@
 /*   By: erian <erian@student.42>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 16:13:02 by erian             #+#    #+#             */
-/*   Updated: 2024/08/08 21:46:07 by erian            ###   ########.fr       */
+/*   Updated: 2024/08/08 22:24:35 by erian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ int	print_and_count(const char *format, va_list *args)
 		return (to_s(va_arg(*args, char *)));
 	else if (*format == 'p')
 		return (to_p(va_arg(*args, void *)));
-	else if (*format == 'd' || *format == 'i' || *format == 'u')
+	else if (*format == 'd' || *format == 'i')
 		return (to_d(va_arg(*args, int)));
+	else if (*format == 'u')
+		return (to_d(va_arg(*args, unsigned int)));
 	else if (*format == 'x')
 		return (to_x(va_arg(*args, unsigned int), "0123456789abcdef"));
 	else if (*format == 'X')
@@ -43,7 +45,7 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 			count += print_and_count(++format, &args);
 		else
-			ft_putchar_fd(*format, 1);
+			count += to_c(*format);
 		format++;
 	}
 	va_end(args);

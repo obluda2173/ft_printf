@@ -6,7 +6,7 @@
 /*   By: erian <erian@student.42>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 21:29:58 by erian             #+#    #+#             */
-/*   Updated: 2024/08/08 21:59:03 by erian            ###   ########.fr       */
+/*   Updated: 2024/08/08 22:11:38 by erian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	to_c(char chr)
 
 int	to_s(char *str)
 {
+	if (str == NULL)
+		return (to_s("(null)"));
 	ft_putstr_fd(str, 1);
 	return ((int)ft_strlen(str));
 }
@@ -53,7 +55,10 @@ int	to_d(long long nbr)
 
 	count = 0;
 	if (nbr < 0)
+	{
 		count += to_c('-');
+		nbr = -nbr;
+	}
 	if (nbr / 10)
 		count += to_d(nbr / 10);
 	count += to_c(nbr % 10 + '0');
