@@ -1,14 +1,18 @@
-SRCS		= 	ft_printf.c ft_printf_util.c
+NAME		= 	libftprintf.a
+
+SRC			= 	ft_printf.c ft_printf_util.c
+
+OBJS		= 	$(SRC:.c=.o)
+
 LIBFTDIR	= 	Libft/
 
 LIBFTOBJS	= 	libft.a
-OBJS		= 	$(SRCS:.c=.o)
 
 CC			= 	cc
-RM			= 	rm -f
-CCFLAGS		= 	-Wall -Werror -Wextra -I.
 
-NAME		= 	libftprintf.a
+RM			= 	rm -f
+
+CFLAGS		= 	-Wall -Wextra -Werror
 
 all:			libft_build $(NAME)
 
@@ -18,6 +22,9 @@ $(NAME):		$(OBJS)
 
 libft_build:
 				$(MAKE) -C $(LIBFTDIR)
+
+%.o: %.c
+				$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 				$(RM) $(OBJS)
