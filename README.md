@@ -20,13 +20,7 @@ Welcome to my custom ft_printf function.
 - [ft_printf_util.c][6]: Utility functions used by ft_printf to handle different format specifiers.
 - [Makefile][7]: Script to compile the project and manage dependencies.
 
-### People who inspired:
-- [Hryhorii Zakharchenko][2]
-- [Marianna Zhukova][3]
-
 [1]: https://github.com/obluda2173/ft_printf/blob/main/ft_printf.pdf
-[2]: https://github.com/grysha11
-[3]: https://github.com/fraumarzhuk
 [4]: https://github.com/obluda2173/ft_printf/blob/main/ft_printf.h
 [5]: https://github.com/obluda2173/ft_printf/blob/main/ft_printf.c
 [6]: https://github.com/obluda2173/ft_printf/blob/main/ft_printf_util.c
